@@ -1,5 +1,6 @@
 /target
 *.cwasm
+native-zlib-benchmark*
 perf.data*
 perf.jit.data*
 jitted-*.so
