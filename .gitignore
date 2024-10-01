@@ -1,1 +1,6 @@
 /target
+*.cwasm
+perf.data*
+perf.jit.data*
+jitted-*.so
+jit-*.dump

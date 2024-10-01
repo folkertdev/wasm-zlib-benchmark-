@@ -5,8 +5,8 @@ fn main() {
 
     let _ = it.next().unwrap();
 
-    let silesia_small_tar = include_bytes!("/home/folkertdev/rust/zlib-rs/silesia-small.tar");
-    let silesia_small_tar_gz = include_bytes!("/home/folkertdev/rust/zlib-rs/silesia-small.tar.gz");
+    let silesia_small_tar = include_bytes!("../../zlib-rs/silesia-small.tar");
+    let silesia_small_tar_gz = include_bytes!("../../zlib-rs/silesia-small.tar.gz");
 
     match it.next().unwrap().as_str() {
         "inflate" => match it.next().unwrap().as_str() {
