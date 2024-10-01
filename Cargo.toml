@@ -6,3 +6,6 @@ edition = "2021"
 [dependencies]
 miniz_oxide = "0.8.0"
 zlib-rs = { path = "../zlib-rs/zlib-rs" }
+
+[profile.release]
+debug = 2
