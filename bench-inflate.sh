@@ -3,8 +3,9 @@ set -eu
 
 RUSTFLAGS="-Ctarget-feature=+simd128,+bulk-memory" cargo build --release --target wasm32-wasi
 
-# Use sse4.2 only. Wasm doesn't have 256bit simd, so using only sse2 is the fairest option.
-# This still has crc32 acceleration, so it is not entirely fair.
+# Use sse4.2 only. Wasm doesn't have 256bit simd, so using only sse2 is the
+# fairest option. This still has crc32 acceleration unlike wasm, but this
+# benchmark shouldn't compute any crc32 anyway.
 RUSTFLAGS="-Ctarget-feature=+sse4.2" cargo build --release
 cp target/release/wasm-zlib-benchmark native-zlib-benchmark-sse42
 
