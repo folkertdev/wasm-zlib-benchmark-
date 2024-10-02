@@ -14,4 +14,4 @@ RUSTFLAGS="-Ctarget-feature=+avx2" cargo build --release
 cp target/release/wasm-zlib-benchmark native-zlib-benchmark-avx2
 
 wasmtime compile target/wasm32-wasi/release/wasm-zlib-benchmark.wasm
-poop "./native-zlib-benchmark-sse42 inflate zlib-rs" "./native-zlib-benchmark-avx2 inflate zlib-rs" "wasmtime run --allow-precompiled wasm-zlib-benchmark.cwasm inflate miniz_oxide" "wasmtime run --allow-precompiled wasm-zlib-benchmark.cwasm inflate zlib-rs"
+poop "./native-zlib-benchmark-sse42 inflate zlib-rs" "./native-zlib-benchmark-avx2 inflate zlib-rs" "wasmtime run --allow-precompiled baseline-d693fe.cwasm inflate zlib-rs" "wasmtime run --allow-precompiled wasm-zlib-benchmark.cwasm inflate miniz_oxide" "wasmtime run --allow-precompiled wasm-zlib-benchmark.cwasm inflate zlib-rs"
