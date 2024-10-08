@@ -24,6 +24,23 @@ fn main() {
                     assert_eq!(n, 15736320);
                 }
             }
+            "zlib-ng" => {
+                for _ in 0..10 {
+                    let mut buf = vec![0; 1 << 24];
+
+                    let input = silesia_small_tar_gz;
+                    let source = input.as_ptr();
+                    let source_len = input.len() as _;
+
+                    let mut dest_len = buf.len() as std::ffi::c_ulong;
+                    let dest = buf.as_mut_ptr();
+
+                    let err =
+                        unsafe { libz_sys::uncompress(dest, &mut dest_len, source, source_len) };
+                    assert_eq!(err, 0);
+                    assert_eq!(dest_len, 15736320);
+                }
+            }
             "zlib-rs" => {
                 for _ in 0..10 {
                     let mut buf = vec![0; 1 << 24];
