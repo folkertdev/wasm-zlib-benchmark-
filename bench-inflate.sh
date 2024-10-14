@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-CFLAGS="-fno-pic" CMAKE_TOOLCHAIN_FILE=$HOME/Downloads/wasi-sdk-24.0-x86_64-linux/share/cmake/wasi-sdk.cmake RUSTFLAGS="-Ctarget-feature=+simd128,+bulk-memory" cargo build --release --target wasm32-wasi
+CMAKE_TOOLCHAIN_FILE=$HOME/Downloads/wasi-sdk-24.0-x86_64-linux/share/cmake/wasi-sdk.cmake RUSTFLAGS="-Ctarget-feature=+simd128,+bulk-memory" cargo build --release --target wasm32-wasi
 
 # Use sse4.2 only. Wasm doesn't have 256bit simd, so using only sse2 is the
 # fairest option. This still has crc32 acceleration unlike wasm, but this
